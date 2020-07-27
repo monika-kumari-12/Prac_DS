@@ -1,0 +1,3 @@
+[, a, b, ba, c, ca, cb, cba]
+cbbcaacababc8
+[abc, bac, bca, acb, cab, cba]
