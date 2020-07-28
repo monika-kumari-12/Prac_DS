@@ -1,3 +1,13 @@
-[, a, b, ba, c, ca, cb, cba]
-cbbcaacababc8
-[abc, bac, bca, acb, cab, cba]
+HHVV
+HDV
+HVHV
+HVD
+HVVH
+DHV
+DD
+DVH
+VHHV
+VHD
+VHVH
+VDH
+VVHH

@@ -30,15 +30,19 @@ public class l001{
 
     public static void set3(){
         String s="abc";
+        String s1="aab";
         
         // ArrayList<String> ans=subseq(s);
         // for (String str:ans){
         //     System.out.print(str+" ");
         // }
         
-        System.out.println(subseq(s));
-        System.out.println(subseqCount(s, ""));
-        System.out.println(permutation(s));
+        //System.out.println(subseq(s));
+        //System.out.println(subseq_1(s));
+        //System.out.println(subseqCount(s, ""));
+        //System.out.println(permutation(s));
+        //System.out.println(permutation_02(s, ""));
+        System.out.println(permWithoutDup(s1, ""));
         
     }
 
@@ -107,6 +111,24 @@ public class l001{
         }
         return myAns;
     }
+
+    public static ArrayList<String>subseq_1(String s){
+        if(s.length()==0){
+            ArrayList<String>base=new ArrayList<>();
+            base.add("");
+            return base;
+        }
+        char ch=s.charAt(0);
+        String nstr=s.substring(1);
+        ArrayList<String>smallAns=subseq_1(nstr);
+        ArrayList<String>myAns=new ArrayList<String>();
+        myAns.addAll(smallAns);
+        for(String str:smallAns){
+            myAns.add(ch+str);
+        }
+        return myAns;
+        
+    }
     
     public static int subseqCount(String s, String ans){
          if(s.length()==0){
@@ -137,6 +159,39 @@ public class l001{
         }
         return myAns;
     }
+    public static int permutation_02(String s, String ans){
+        if(s.length()==0){
+            System.out.println(ans);
+            return 1;
+        }
+        int count=0;
+        for (int i=0; i<s.length();i++){
+            String nstr=s.substring(0,i)+s.substring(i+1);
+            count+=permutation_02(nstr, ans+s.charAt(i));
+        }
+        return count;
+    }
+
+    public static int permWithoutDup(String s, String ans){
+        if(s.length()==0){
+            System.out.println(ans);
+            return 1;
+        }
+        int count=0;
+        boolean[] vis =new boolean[26];
+        for (int i=0;i<s.length(); i++){
+            char ch=s.charAt(i);
+            if(!vis[ch-'a']){
+                vis[ch-'a']=true;
+                String nstr=s.substring(0,i)+s.substring(i+1);
+                count+=permWithoutDup(nstr, ans+ch);
+            }
+
+        }
+        return count;
+    }
+
+    
 
 
 }
